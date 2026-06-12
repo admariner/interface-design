@@ -396,11 +396,11 @@ For more detail on specific topics:
 - `references/critique.md` — Post-build craft critique protocol
 - `references/imagegen.md` — Codex image generation workflow for direction boards, UI references, paintovers, and project-bound assets
 
-# Codex Command Equivalents
+# Codex Invocation
 
-Claude Code slash commands are packaged separately in this repository. Codex does not need those command files. If the user asks for any of these actions, perform the equivalent inline:
+Claude Code's legacy `:status`, `:audit`, `:extract`, and `:critique` command files are packaged separately in this repository. Codex may expose `/interface-design` as a skill slash command, but does not need the Claude command files. If the user asks for any of these actions through `/interface-design`, `$interface-design`, or natural language, perform the equivalent inline:
 
-- `interface-design status` or `/interface-design:status` — Read `.interface-design/system.md`, summarize direction, tokens, patterns, and last modified time. If missing, suggest extract or first-build setup.
-- `interface-design audit` or `/interface-design:audit` — Check UI files against `.interface-design/system.md` for spacing, depth, color, token, and pattern drift. Report file/line findings and fixes.
-- `interface-design extract` or `/interface-design:extract` — Scan UI files for repeated spacing, radius, colors, shadows, buttons, cards, and controls. Propose a `.interface-design/system.md`; write it only after user confirmation.
-- `interface-design critique` or `/interface-design:critique` — Review the current build for composition, craft, content coherence, and structural hacks; then patch the defaulted parts before responding.
+- `interface-design status`, `/interface-design status`, or `/interface-design:status` — Read `.interface-design/system.md`, summarize direction, tokens, patterns, and last modified time. If missing, suggest extract or first-build setup.
+- `interface-design audit`, `/interface-design audit`, or `/interface-design:audit` — Check UI files against `.interface-design/system.md` for spacing, depth, color, token, and pattern drift. Report file/line findings and fixes.
+- `interface-design extract`, `/interface-design extract`, or `/interface-design:extract` — Scan UI files for repeated spacing, radius, colors, shadows, buttons, cards, and controls. Propose a `.interface-design/system.md`; write it only after user confirmation.
+- `interface-design critique`, `/interface-design critique`, or `/interface-design:critique` — Review the current build for composition, craft, content coherence, and structural hacks; then patch the defaulted parts before responding.

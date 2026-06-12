@@ -113,9 +113,9 @@ npx skills add https://github.com/dammyjay93/interface-design --skill interface-
 
 The skills CLI installs Codex skills to `~/.agents/skills/interface-design`, which Codex scans. Restart Codex, or start a fresh Codex thread, if the skill does not appear immediately.
 
-Use the skill explicitly in prompts, or let Codex invoke it when the request is clearly product UI work:
-- `use interface-design to audit this UI`
-- `use interface-design extract on src/components`
+Use the Codex slash command when available, invoke the skill explicitly in prompts, or let Codex invoke it when the request is clearly product UI work:
+- `/interface-design`
+- `/interface-design audit src/components`
 - `use interface-design critique on the dashboard`
 
 #### Other Skill-Compatible Agents
@@ -131,7 +131,7 @@ npx skills add https://github.com/dammyjay93/interface-design --skill interface-
 | Agent | Install | Skill support | Slash commands | Notes |
 |-------|---------|---------------|----------------|-------|
 | Claude Code | `npx skills add ... --agent claude-code -g` | Yes | `/interface-design` | Plugin marketplace remains supported |
-| Codex | `npx skills add ... --agent codex -g` | Yes | No | Use natural language equivalents |
+| Codex | `npx skills add ... --agent codex -g` | Yes | `/interface-design` | Slash command and natural language both work |
 | All supported agents | `npx skills add ... --agent '*' -g -y` | Depends on agent | Depends on agent | Good for multi-agent setups |
 
 ### Manual Fallback
@@ -292,18 +292,24 @@ If you installed through the Claude Code plugin flow, the legacy command files i
 /interface-design:critique       # Critique the build for craft, then rebuild weak spots
 ```
 
-### Codex Equivalents
+### Codex Invocation
 
-Codex uses the same skill content but does not use Claude slash commands. Ask for the operation in natural language:
+Codex uses the same skill content and can invoke it through the slash command or natural language:
 
 ```text
+/interface-design
+/interface-design status
+/interface-design audit src/components
+/interface-design extract
+/interface-design critique
+
 use interface-design status
 use interface-design audit src/components
 use interface-design extract
 use interface-design critique
 ```
 
-Codex reads the same `SKILL.md`, references, and `.interface-design/system.md`; only the invocation style changes. For visual direction work, the skill can also invoke `$imagegen` for direction boards, UI reference mockups, screenshot paintovers, and project-bound raster assets.
+Claude Code also ships legacy command files such as `/interface-design:status`; Codex does not need those files to perform the same actions. For visual direction work, the skill can also invoke `$imagegen` for direction boards, UI reference mockups, screenshot paintovers, and project-bound raster assets.
 
 ---
 
